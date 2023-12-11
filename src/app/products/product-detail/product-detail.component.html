@@ -1,0 +1,35 @@
+<div
+  class="flex flex-col justify-around items-center gap-5 my-5 p-5 h-auto w-1/2 min-w-[400px] mx-auto border rounded-md border-black shadow-2xl"
+  *ngIf="product"
+>
+  <h2>Name: {{ product.name }}</h2>
+  <p>Price: {{ product.price }}</p>
+  Tags:
+  <p *ngFor="let tag of product.tags" [ngStyle]="{ color: tag.color }">
+    {{ tag.title }}
+  </p>
+  <p>Description: {{ product.description }}</p>
+  <div class="flex flex-col">
+    <button
+      type="button"
+      class="w-[200px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      (click)="navigateToProductUpdate()"
+    >
+      Edit
+    </button>
+    <button
+      type="button"
+      class="w-[200px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      (click)="removeProduct(product)"
+    >
+      Delete
+    </button>
+    <button
+      type="button"
+      class="w-[200px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      (click)="goBack()"
+    >
+      Go Back
+    </button>
+  </div>
+</div>
